@@ -4,151 +4,214 @@
     <meta charset="UTF-8">
     <title>我的项目实验室</title>
     <style>
-        /* 这里的代码负责让网页变漂亮 */
-        body { font-family: sans-serif; background-color: #0d1117; color: white; padding: 40px; }
-        .container { max-width: 1000px; margin: 0 auto; }
-        .project-card { 
-            background: #161b22; 
-            border: 1px solid #30363d; 
-            border-radius: 10px; 
-            margin-bottom: 30px; 
-            padding: 20px; 
+        /* --- 极简高级风 CSS 开始 --- */
+        
+        /* 1. 全局样式：现代字体、柔和的灰白背景 */
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; 
+            background-color: #F8FAFC; /* 高级灰白底色 */
+            color: #334155; /* 深岩灰色文字，比纯黑更柔和 */
+            padding: 50px 20px; 
+            line-height: 1.7;
         }
-        h1 { text-align: center; color: #58a6ff; }
+        
+        .container { max-width: 1000px; margin: 0 auto; }
+        
+        /* 2. 主标题：增加字重与低调的渐变色 */
+        h1 { 
+            text-align: center; 
+            font-size: 2.8em;
+            font-weight: 800;
+            margin-bottom: 50px;
+            background: linear-gradient(135deg, #2563EB, #06B6D4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -0.5px;
+        }
+
+        /* 3. 卡片样式：纯白底色 + 柔和阴影 + 悬浮动效 */
+        .project-card { 
+            background: #FFFFFF; 
+            border: none; 
+            border-radius: 20px; 
+            box-shadow: 0 10px 40px -10px rgba(0,0,0,0.06); 
+            margin-bottom: 40px; 
+            padding: 40px; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px -10px rgba(0,0,0,0.12);
+        }
+
+        /* 4. 标题与排版美化 */
+        h2 { 
+            color: #0F172A; 
+            font-size: 1.8em;
+            margin-top: 0;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #E2E8F0; /* 极细的分界线 */
+            margin-bottom: 25px;
+        }
+        
+        h3 { 
+            color: #1E293B; 
+            font-size: 1.25em; 
+            margin-top: 0; 
+            margin-bottom: 15px;
+        }
+
+        /* 将你的斜体引言自动变成高级的引用块样式 */
+        p i {
+            display: block;
+            color: #64748B;
+            border-left: 4px solid #CBD5E1;
+            padding-left: 16px;
+            margin: 16px 0;
+            font-size: 0.95em;
+        }
+
+        /* 5. 视频容器：增加圆角与一点内阴影质感 */
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 比例锁定 */
+            padding-bottom: 56.25%; 
             height: 0;
             overflow: hidden;
             margin-bottom: 15px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         }
         .video-container iframe {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
         }
-        .tags { color: #8b949e; font-size: 0.9em; margin-top: 10px; }
         
-        /* 左右并排的容器 */
+        /* 6. 技术栈标签：药丸形状 */
+        .tags { 
+            display: inline-block;
+            background-color: #F1F5F9; 
+            color: #475569; 
+            font-size: 0.85em; 
+            font-weight: 600;
+            padding: 8px 18px; 
+            border-radius: 30px; 
+        }
+        
+        /* 7. 布局与列表 */
         .project-content {
             display: flex;
-            flex-wrap: wrap; /* 在手机上会自动切换成上下排列，防止挤压 */
-            gap: 30px;      /* 左右之间的间距 */
+            flex-wrap: wrap; 
+            gap: 40px; /* 拉大间距，更显大气 */
             align-items: flex-start;
         }
 
-        /* 左侧视频区域 */
         .video-side {
-            flex: 0 0 280px; /* 固定宽度 280px，不随文字多少而伸缩 */
+            flex: 0 0 280px; 
         }
 
-        /* 右侧文字区域 */
         .text-side {
-            flex: 1; /* 自动占据剩下的所有宽度 */
+            flex: 1; 
         }
 
-        /* 让列表更好看 */
         .innovation-list {
             margin: 0;
             padding-left: 20px;
             line-height: 1.8;
+            color: #475569;
         }
+        
+        .innovation-list li {
+            margin-bottom: 12px;
+        }
+        
+        .innovation-list strong {
+            color: #0F172A; /* 突出小标题的对比度 */
+        }
+        /* --- CSS 结束 --- */
     </style>
 </head>
 
-    
 <body>
     <div class="container">
         <h1>My Digital Toys</h1>
 
-        
+        <div class="project-card">
+            <h2>Time-Loop Sokoban Demo(C++)</h2>
+            
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VDP4Do0Gor8?si=ypYOLQcMeKFfU4sD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
 
-        <!-- 项目卡片 1: 推箱子 -->
-<div class="project-card">
-    <h2>Time-Loop Sokoban Demo(C++)</h2> <!-- -->
-    
-    <!-- 视频区域 -->
-    <div class="video-container">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/VDP4Do0Gor8?si=ypYOLQcMeKFfU4sD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </div>
-
-    <!-- 游戏详细介绍区域 -->
-    <div class="project-description" style="margin-top: 20px;">
-        <h3>Cooperating with the shadow of your past</h3>
-        <p>A classic puzzle game built with <strong>C++</strong> and the <strong>EasyX</strong> graphics library. To ensure a smooth user experience, I used a modular design that decouples the UI display from the core game logic.</p>
-        <p>In this game, it is actually impossible to reach the goal within the move limit on your own. However, the game features a unique "Time-Loop" mechanic. After your first failed attempt, you start over, but this time a "blue cat shadow" appears on the board. That is your past self—it will repeat every move you made in the previous round. By coordinating with your past actions, you can solve the puzzle together.</p>
-        <p><i>"While we are often held back by objective limits, a time loop gives us a second chance—the chance to cooperate with our past selves."</i></p>
-        
-        <div class="tags" style="margin-top: 15px;">Tech Stack: C++, EasyX Graphics, STL (Stack/Vector)</div>
-    </div>
-</div>
-
-        
-
-        <!-- 项目卡片 2: QQ机器人 -->
-<div class="project-card">
-    <h2>Intelligent Multimodal Chatbot</h2> <!-- -->
-    <div class="project-content">
-        <!-- 左边：视频 -->
-        <div class="video-side">
-            <div class="video-container" style="padding-bottom: 177%; position: relative;">
-                <iframe 
-                    width="560" 
-                    height="315" 
-                    src="https://www.youtube.com/embed/4mMEW6SmaUg?si=_annLveUX3E7Dpmo" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
-                </iframe>
+            <div class="project-description" style="margin-top: 20px;">
+                <h3>Cooperating with the shadow of your past</h3>
+                <p>A classic puzzle game built with <strong>C++</strong> and the <strong>EasyX</strong> graphics library. To ensure a smooth user experience, I used a modular design that decouples the UI display from the core game logic.</p>
+                <p>In this game, it is actually impossible to reach the goal within the move limit on your own. However, the game features a unique "Time-Loop" mechanic. After your first failed attempt, you start over, but this time a "blue cat shadow" appears on the board. That is your past self—it will repeat every move you made in the previous round. By coordinating with your past actions, you can solve the puzzle together.</p>
+                <p><i>"While we are often held back by objective limits, a time loop gives us a second chance—the chance to cooperate with our past selves."</i></p>
+                
+                <div class="tags" style="margin-top: 15px;">Tech Stack: C++, EasyX Graphics, STL (Stack/Vector)</div>
             </div>
         </div>
-        <!-- 右边：创新点 -->
-        <div class="text-side">
-            <h3>Become Internet Friends with Your Digital Lovers</h3>
-            <p><i>"A friend of mine fell in love with a male lead from the game Love and Deepspace, so I built this AI robot as a gift for her."</i></p>
-            <ul class="innovation-list">
-                <li><strong>Voice Cloning</strong>：Used GPT-SoVITS to create a high-fidelity voice clone of the game character with minimal audio samples.</li>
-                <li><strong>Natural Chatting</strong>：Optimized message pacing to simulate real human conversation rather than instant, bulk text.</li>
-                <li><strong>Long-term Memory</strong>：Implemented a summarization algorithm to help the AI remember key details from past conversations.</li>
-                <li><strong>Multimodal Experience</strong>：Integrated GOCQ and LLM API to handle text, voice, and image interactions seamlessly.</li>
-            </ul>
-            <div class="tags" style="margin-top: 20px;">Tech Stack: Python, LLM API, TTS</div>
-        </div>
-    </div>
-</div>
-        
 
-        <!-- 项目卡片 3: 自动化工具 -->
-<div class="project-card">
-    <h2>AntiXHS app: Mobile Productivity & Focus Optimizer</h2> <!-- -->
-    <div class="project-content">
-        <!-- 左边：视频 -->
-        <div class="video-side">
-            <div class="video-container" style="padding-bottom: 177%; position: relative;">
-                <iframe 
-                    width="560" height="315" 
-                    src="https://www.youtube.com/embed/h5UFR1bHAbk?si=MttLWvnSlE8odyy_" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>  
-                </iframe>
+        <div class="project-card">
+            <h2>Intelligent Multimodal Chatbot</h2>
+            <div class="project-content">
+                <div class="video-side">
+                    <div class="video-container" style="padding-bottom: 177%; position: relative;">
+                        <iframe 
+                            width="560" 
+                            height="315" 
+                            src="https://www.youtube.com/embed/4mMEW6SmaUg?si=_annLveUX3E7Dpmo" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+                <div class="text-side">
+                    <h3>Become Internet Friends with Your Digital Lovers</h3>
+                    <p><i>"A friend of mine fell in love with a male lead from the game Love and Deepspace, so I built this AI robot as a gift for her."</i></p>
+                    <ul class="innovation-list">
+                        <li><strong>Voice Cloning</strong>：Used GPT-SoVITS to create a high-fidelity voice clone of the game character with minimal audio samples.</li>
+                        <li><strong>Natural Chatting</strong>：Optimized message pacing to simulate real human conversation rather than instant, bulk text.</li>
+                        <li><strong>Long-term Memory</strong>：Implemented a summarization algorithm to help the AI remember key details from past conversations.</li>
+                        <li><strong>Multimodal Experience</strong>：Integrated GOCQ and LLM API to handle text, voice, and image interactions seamlessly.</li>
+                    </ul>
+                    <div class="tags" style="margin-top: 20px;">Tech Stack: Python, LLM API, TTS</div>
+                </div>
             </div>
         </div>
-        <!-- 右边：创新点 -->
-        <div class="text-side">
-            <h3>Say No to Video Addiction</h3>
-            <p><i>"Video feeds are everywhere. To stop wasting time scrolling, I built this app for myself and shared it with friends—it's been a hit."</i></p>
-            <ul class="innovation-list">
-                <li><strong>Non-Invasive Interception</strong>：Uses Android Accessibility Service for real-time UI scanning and automation without requiring Root access.</li>
-                <li><strong>Anti-Addiction Design</strong>：Effectively manages fragmented usage habits through floating window alerts and forced exits.</li>
-                <li><strong>Full Automation</strong>：Achieves end-to-end automation from app launch to final operation, significantly boosting efficiency.</li>
-            </ul>
-            <div class="tags" style="margin-top: 20px;">Tech Stack: Java, Android SDK, Accessibility Service</div>
+
+        <div class="project-card">
+            <h2>AntiXHS app: Mobile Productivity & Focus Optimizer</h2>
+            <div class="project-content">
+                <div class="video-side">
+                    <div class="video-container" style="padding-bottom: 177%; position: relative;">
+                        <iframe 
+                            width="560" height="315" 
+                            src="https://www.youtube.com/embed/h5UFR1bHAbk?si=MttLWvnSlE8odyy_" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen>  
+                        </iframe>
+                    </div>
+                </div>
+                <div class="text-side">
+                    <h3>Say No to Video Addiction</h3>
+                    <p><i>"Video feeds are everywhere. To stop wasting time scrolling, I built this app for myself and shared it with friends—it's been a hit."</i></p>
+                    <ul class="innovation-list">
+                        <li><strong>Non-Invasive Interception</strong>：Uses Android Accessibility Service for real-time UI scanning and automation without requiring Root access.</li>
+                        <li><strong>Anti-Addiction Design</strong>：Effectively manages fragmented usage habits through floating window alerts and forced exits.</li>
+                        <li><strong>Full Automation</strong>：Achieves end-to-end automation from app launch to final operation, significantly boosting efficiency.</li>
+                    </ul>
+                    <div class="tags" style="margin-top: 20px;">Tech Stack: Java, Android SDK, Accessibility Service</div>
+                </div>
+            </div>
         </div>
-    </div>
-</div>
         
+    </div>
 </body>
 </html>

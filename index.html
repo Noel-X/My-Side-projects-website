@@ -60,14 +60,30 @@
         <h1>我的开发作品集</h1>
 
         <!-- 项目卡片 1: 推箱子 -->
-        <div class="project-card">
-            <h2>C++ 推箱子游戏</h2> <!-- -->
-            <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/VDP4Do0Gor8?si=ypYOLQcMeKFfU4sD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </div>
-            <p>基于 C++ 和 EasyX 库开发的复古益智游戏，实现了多关卡跳转和撤回逻辑。</p> <!-- -->
-            <div class="tags">技术栈: C++, EasyX Graphics</div>
-        </div>
+<div class="project-card">
+    <h2>C++ 复古推箱子游戏</h2> <!-- -->
+    
+    <!-- 视频区域 -->
+    <div class="video-container">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/VDP4Do0Gor8?si=ypYOLQcMeKFfU4sD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+
+    <!-- 游戏详细介绍区域 -->
+    <div class="project-description" style="margin-top: 20px;">
+        <h3>项目概述 (Project Overview)</h3>
+        <p>这是一个基于 <strong>C++</strong> 语言和 <strong>EasyX</strong> 图形库开发的经典逻辑益智游戏。项目通过模块化设计，将图形界面显示与底层逻辑运算解耦，实现了流畅的交互体验。</p>
+        
+        <h3>核心功能 (Core Features)</h3>
+        <ul style="line-height: 1.8; color: #d1d5db;">
+            <li><strong>多关卡设计</strong>：通过二维数组读取外部地图文件，支持无限关卡扩展及自动跳转逻辑。</li>
+            <li><strong>悔棋/撤回功能</strong>：利用<strong>栈 (Stack) </strong>数据结构记录每一步移动，实现了多步撤回操作。</li>
+            <li><strong>碰撞检测算法</strong>：精准计算人物、箱子与墙壁之间的物理碰撞逻辑。</li>
+            <li><strong>本地数据持久化</strong>：支持游戏进度存储与高分榜记录。</li>
+        </ul>
+        
+        <div class="tags" style="margin-top: 15px;">技术栈: C++, EasyX Graphics, STL (Stack/Vector)</div>
+    </div>
+</div>
 
         
 

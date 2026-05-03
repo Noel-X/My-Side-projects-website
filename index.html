@@ -26,8 +26,35 @@
             position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
         }
         .tags { color: #8b949e; font-size: 0.9em; margin-top: 10px; }
+        
+        /* 左右并排的容器 */
+        .project-content {
+            display: flex;
+            flex-wrap: wrap; /* 在手机上会自动切换成上下排列，防止挤压 */
+            gap: 30px;      /* 左右之间的间距 */
+            align-items: flex-start;
+        }
+
+        /* 左侧视频区域 */
+        .video-side {
+            flex: 0 0 280px; /* 固定宽度 280px，不随文字多少而伸缩 */
+        }
+
+        /* 右侧文字区域 */
+        .text-side {
+            flex: 1; /* 自动占据剩下的所有宽度 */
+        }
+
+        /* 让列表更好看 */
+        .innovation-list {
+            margin: 0;
+            padding-left: 20px;
+            line-height: 1.8;
+        }
     </style>
 </head>
+
+    
 <body>
     <div class="container">
         <h1>我的开发作品集</h1>
@@ -63,24 +90,31 @@
         
 
         <!-- 项目卡片 3: 自动化工具 -->
-        <div class="project-card">
-            <h2>Android 自动化效率工具</h2>
-            <div style="max-width: 280px; margin: 0 auto;"> 
-                <div class="video-container" style="padding-bottom: 177%; position: relative;">
-                <iframe 
-                    width="560" 
-                    height="315" 
-                    src="https://www.youtube.com/embed/h5UFR1bHAbk?si=MttLWvnSlE8odyy_" 
-                    title="YouTube video player" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
-            </iframe>
+<div class="project-card">
+    <h2>Android 自动化效率工具 (AntiXHS)</h2> <!-- -->
+    <div class="project-content">
+        <!-- 左边：视频 -->
+        <div class="video-side">
+            <div class="video-container" style="padding-bottom: 177%; position: relative;">
+                <!-- 贴入你的 YouTube iframe -->
+                <iframe src="https://www.youtube.com/embed/hSURRIWwbk?si=MttLwvns1E8odyy_" 
+                        style="position: absolute; top:0; left:0; width:100%; height:100%;" 
+                        frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
-    <p>利用 Accessibility Service 深度开发的移动端工具，实现自动化流程拦截。</p>
-    <div class="tags">技术栈: Java, Android SDK</div>
-</div>
+        <!-- 右边：创新点 -->
+        <div class="text-side">
+            <h3>项目创新点 (Innovation Highlights)</h3>
+            <ul class="innovation-list">
+                <li><strong>非侵入式拦截</strong>：利用 Android Accessibility Service 实现对目标 UI 元素的实时扫描，无需 Root 权限即可实现自动化控制。</li>
+                <li><strong>毫秒级响应逻辑</strong>：优化了节点搜索算法，确保在“小红书”等高频刷新界面下，依然能精准捕捉特定视频标记。</li>
+                <li><strong>防沉迷交互设计</strong>：通过自动跳转或浮窗提醒，有效干预用户的碎片化使用习惯。</li>
+                <li><strong>全自动化流程</strong>：实现了从应用启动到目标操作完成的全链路自动化，大幅提升操作效率。</li>
+            </ul>
+            <div class="tags" style="margin-top: 20px;">技术栈: Java, Android SDK, Accessibility Service</div>
+        </div>
     </div>
+</div>
+        
 </body>
 </html>
